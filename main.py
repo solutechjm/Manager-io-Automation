@@ -24,6 +24,7 @@ PAYROLL_DATE=datetime.datetime.today()
 
 def fetchApiList():
     response = requests.get(f"https://{COMPANY_NAME}/api/{API_KEY_JSON}", auth=(USERNAME, PASSWORD))
+    print("fetchApiList")
     print(response)
     return response
 
@@ -48,6 +49,7 @@ def searchMainApiList(itemValue, fileName, key):
 
 createApiList()
 EMP_LIST_KEY = searchMainApiList("Employee", API_LIST_FILENAME, "Name")
+print("EMP_LIST_KEY:" + EMP_LIST_KEY)
 PAYSLIP_LIST_KEY = searchMainApiList("Payslip", API_LIST_FILENAME, "Name")
 
 
